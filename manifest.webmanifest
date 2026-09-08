@@ -1,0 +1,18 @@
+{
+  "name": "myGov",
+  "short_name": "myGov",
+  "description": "Film/TV prop — not an official government application",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#65d3ee",
+  "theme_color": "#65d3ee",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
