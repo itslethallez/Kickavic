@@ -65,7 +65,7 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   line-height: 1;
 }
 .cover.show { display: flex; }
-.cover-cyan { background: transparent; color: #111; }
+.cover-cyan { background: #63c9e3; color: #111; }
 .cover-cream { background: transparent; color: #111; }
 .cover-medgreen { background: transparent; color: #111; flex-direction: column; align-items: flex-start; }
 .cover-white { background: transparent; color: #111; flex-direction: column; align-items: flex-start; }
@@ -93,36 +93,153 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   letter-spacing: 0.04em;
 }
 
-.mednum-cover {
-  left: 8%;
-  width: 50%;
-  top: 58.0%;
-  height: 6.9%;
-  padding-left: 1%;
+.head-actions { display: flex; gap: 8px; margin-top: 4%; }
+
+.wallet-body { padding: 2% 4% 12px; }
+.medicare-body { padding: 2% 4% 20px; }
+
+.hcc-card,
+.med-mini {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  color: inherit;
+  margin-bottom: 14px;
+}
+.hcc-card .hcc-top {
+  background: #1a7a3c;
+  color: #fff;
+  padding: 18px 16px 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.hcc-card .hcc-bot {
+  background: var(--cream);
+  color: #111;
+  min-height: 168px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.med-pattern {
+  background-color: #8fd196;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='28'><path d='M4 6l7 8-7 8' fill='none' stroke='%2377b87f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M11 6l7 8-7 8' fill='none' stroke='%2377b87f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+.med-mini { background-color: #8fd196; }
+.med-mini,
+.med-full-head { background-color: #8fd196; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='28'><path d='M4 6l7 8-7 8' fill='none' stroke='%2377b87f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M11 6l7 8-7 8' fill='none' stroke='%2377b87f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>"); }
+.med-mini-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 16px 8px;
+  color: #111;
+  font-size: 20px;
+  font-weight: 700;
+}
+.med-logo {
+  background: #1a6b3c;
+  color: #f3d36a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 7px 5px;
+  border-radius: 3px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.med-mini-body {
+  padding: 28px 16px 22px;
+  color: #111;
+}
+#walletMedNum { font-weight: 700; font-size: 18px; letter-spacing: .3px; }
+#walletPeople { font-size: 13px; margin-top: 4px; }
+
+.med-full { border-radius: 16px; overflow: hidden; margin-bottom: 14px; }
+.med-full-head {
+  text-align: center;
+  padding: 18px 12px;
+  color: #111;
+  font-size: 20px;
+  font-weight: 700;
+}
+.med-full-body {
+  position: relative;
+  background: #fff;
+  color: #111;
+  padding: 16px 18px 22px;
+  min-height: 210px;
+  overflow: visible;
+}
+.med-full-body::after {
+  content: "myGov";
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  font-size: 56px;
+  font-weight: 800;
+  color: #8bb8e8;
+  opacity: .18;
+  pointer-events: none;
+  letter-spacing: -1px;
+}
+.mc-label { position: relative; z-index: 1; font-size: 12px; color: #6b7178; }
+.mc-num {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0 16px;
+  letter-spacing: .02em;
+  overflow: visible;
+  white-space: normal;
+  word-break: break-word;
+}
+.mc-names {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 16px 1.15em;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow: visible;
+}
+.mc-valid { position: relative; z-index: 1; font-size: 16px; font-weight: 600; }
+
+.manage-btn {
+  width: 100%;
+  background: #2a2e33;
+  color: #fff;
+  border-radius: 10px;
+  padding: 16px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.manage-btn svg { width: 20px; height: 20px; }
+.verify-btn {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 8px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 600;
 }
-#walletMedNum { font-weight: 700; font-size: 2.4cqh; letter-spacing: .3px; }
-#walletPeople { font-size: 1.45cqh; margin-top: .35cqh; }
-
-.meddetail-cover {
-  left: 8.5%;
-  width: 78%;
-  top: 23.8%;
-  height: 25.2%;
-  padding: 1% 2%;
-  justify-content: flex-start;
-}
-.mc-label { font-size: 1.2cqh; color: #6b7178; }
-.mc-num { font-size: 2.7cqh; font-weight: 700; margin: .2cqh 0 1.2cqh; }
-.mc-names { margin: 0 0 1.2cqh 1.2cqh; padding: 0; font-size: 1.5cqh; line-height: 1.55; }
-.mc-valid { font-size: 1.5cqh; font-weight: 600; }
-
-.updated-cover {
-  left: 10%;
-  width: 80%;
-  top: 76.4%;
-  height: 2.5%;
-  font-size: 1.2cqh;
+.verify-btn svg { width: 22px; height: 22px; }
+.updated-line {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 18px 0 0;
 }
 
 .pin-dots {
@@ -177,12 +294,12 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 
 .dark-screen { background: var(--bg) !important; color: #fff; display: flex; flex-direction: column; }
 .dark-head {
-  padding: 7% 5% 2%;
+  padding: max(12px, env(safe-area-inset-top, 0px)) 5% 2%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-.dark-head.bar { padding-top: 6%; }
+.dark-head.bar { padding-top: max(10px, env(safe-area-inset-top, 0px)); }
 .dark-head h1 { margin: 8% 0 0; font-size: 3.4cqh; }
 .dark-body { flex: 1; overflow: auto; padding: 2% 4% 16%; }
 .round {
@@ -223,7 +340,7 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background: #26292e;
-  padding: 8px 0 10px;
+  padding: 8px 0 max(10px, env(safe-area-inset-bottom));
 }
 .css-tabs button {
   color: #c9cdd2;
@@ -325,8 +442,9 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 
 #editFab {
   position: absolute;
-  right: 10px;
-  bottom: 18px;
+  left: 12px;
+  right: auto;
+  bottom: calc(78px + env(safe-area-inset-bottom, 0px));
   z-index: 12;
   background: #fff;
   color: #111;

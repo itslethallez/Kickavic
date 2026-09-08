@@ -17,7 +17,7 @@
     <div id="phone">
       <div id="app">
 
-        <section class="screen active" id="welcome" style="background-image:url('screens/welcome.jpg?v=3')">
+        <section class="screen active" id="welcome" style="background-image:url('screens/welcome.jpg?v=4')">
           <button class="hot" style="left:78%;top:1.6%;width:10%;height:5.2%" data-go="scanner" aria-label="Scan"></button>
           <button class="hot" style="left:88.5%;top:1.6%;width:10%;height:5.2%" data-go="info" aria-label="Info"></button>
           <div class="cover cover-cyan name-cover" id="welcomeNameCover">
@@ -27,7 +27,7 @@
           <button class="hot" style="left:22%;top:93.4%;width:56%;height:2.7%" data-go="signin" aria-label="Sign in as someone else"></button>
         </section>
 
-        <section class="screen" id="pin" style="background-image:url('screens/pin.jpg?v=3')">
+        <section class="screen" id="pin" style="background-image:url('screens/pin.jpg?v=4')">
           <button class="hot" style="left:3%;top:2.0%;width:12%;height:5.2%" data-go="welcome" aria-label="Back"></button>
           <button class="hot" style="left:70%;top:2.0%;width:27%;height:5.2%" data-go="forgot" aria-label="Forgot PIN"></button>
           <div class="pin-dots" id="pinDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -39,25 +39,43 @@
           </div>
         </section>
 
-        <section class="screen" id="wallet" style="background-image:url('screens/wallet.jpg?v=3')">
-          <button class="hot" style="left:76%;top:0.9%;width:10%;height:5.4%" data-msg="Edit wallet" aria-label="Edit"></button>
-          <button class="hot" style="left:87%;top:0.9%;width:10%;height:5.4%" data-go="addcard" aria-label="Add"></button>
-          <button class="hot" style="left:4%;top:15.9%;width:92%;height:29.4%" data-go="hcc" aria-label="Health Care Card"></button>
-          <div class="cover cover-cream initials-cover" id="hccCover"><span id="hccInitials">JSP</span></div>
-          <button class="hot" style="left:4%;top:47.1%;width:92%;height:29.4%" data-go="medicare" aria-label="Medicare card"></button>
-          <div class="cover cover-medgreen mednum-cover" id="walletMedCover">
-            <div id="walletMedNum">**** **549 6</div>
-            <div id="walletPeople">2 people</div>
+        <section class="screen dark-screen" id="wallet">
+          <header class="dark-head">
+            <h1>Wallet</h1>
+            <div class="head-actions">
+              <button class="round" data-msg="Edit wallet" aria-label="Edit">
+                <svg viewBox="0 0 24 24"><path d="M4 17.2V20h2.8l8.2-8.2-2.8-2.8L4 17.2zM18.7 7.3a.8.8 0 000-1.1l-1.9-1.9a.8.8 0 00-1.1 0l-1.5 1.5 2.8 2.8 1.7-1.3z" fill="#fff"/></svg>
+              </button>
+              <button class="round" data-go="addcard" aria-label="Add">
+                <svg viewBox="0 0 24 24"><path d="M11 5h2v14h-2zM5 11h14v2H5z" fill="#fff"/></svg>
+              </button>
+            </div>
+          </header>
+          <div class="dark-body wallet-body">
+            <button class="hcc-card" data-go="hcc" aria-label="Health Care Card">
+              <div class="hcc-top">Health Care Card</div>
+              <div class="hcc-bot"><span id="hccInitials">JSP</span></div>
+            </button>
+            <button class="med-mini" data-go="medicare" aria-label="Medicare card">
+              <div class="med-mini-head">
+                <span>Medicare card</span>
+                <span class="med-logo">medicare</span>
+              </div>
+              <div class="med-mini-body">
+                <div id="walletMedNum">**** **549 6</div>
+                <div id="walletPeople">1 person</div>
+              </div>
+            </button>
           </div>
-          <div class="tabs">
-            <button data-go="home" aria-label="Home"></button>
-            <button data-go="wallet" aria-label="Wallet"></button>
-            <button data-go="inbox" aria-label="Inbox"></button>
-            <button data-go="services" aria-label="Services"></button>
-          </div>
+          <nav class="css-tabs">
+            <button data-go="home"><i class="i-home"></i>Home</button>
+            <button class="on" data-go="wallet"><i class="i-wallet"></i>Wallet</button>
+            <button data-go="inbox"><i class="i-inbox"></i><span class="nav-badge inbox-n">15</span>Inbox</button>
+            <button data-go="services"><i class="i-grid"></i>Services</button>
+          </nav>
         </section>
 
-        <section class="screen" id="services" style="background-image:url('screens/services.jpg?v=3')">
+        <section class="screen" id="services" style="background-image:url('screens/services.jpg?v=4')">
           <button class="hot" style="left:76%;top:0.9%;width:10%;height:5.4%" data-msg="Edit services" aria-label="Edit"></button>
           <button class="hot" style="left:87%;top:0.9%;width:10%;height:5.4%" data-go="linksvc" aria-label="Add"></button>
           <button class="hot" style="left:4%;top:16.0%;width:92%;height:7.6%" data-go="forms" aria-label="Forms"></button>
@@ -73,20 +91,35 @@
           </div>
         </section>
 
-        <section class="screen" id="medicare" style="background-image:url('screens/medicare.jpg?v=3')">
-          <button class="hot" style="left:2.5%;top:0.9%;width:12%;height:5.4%" data-back aria-label="Back"></button>
-          <button class="hot" style="left:86%;top:0.9%;width:12%;height:5.4%" data-go="cardmenu" aria-label="More"></button>
-          <div class="cover cover-white meddetail-cover" id="medDetailCover">
-            <div class="mc-label">Card number</div>
-            <div class="mc-num" id="medNum">3430 12549 6</div>
-            <ol class="mc-names" id="medNames"></ol>
-            <div class="mc-label">Valid to</div>
-            <div class="mc-valid" id="medValid">Jun 2031</div>
-          </div>
-          <button class="hot" style="left:4%;top:51.5%;width:92%;height:7.4%" data-msg="Opening Medicare to manage your card"></button>
-          <button class="hot" style="left:4%;top:63.3%;width:92%;height:11.2%" data-go="verify"></button>
-          <div class="cover cover-dark updated-cover" id="updatedCover">
-            <span id="medUpdated">Last updated 8 Sept 2026 at 8:14 am</span>
+        <section class="screen dark-screen" id="medicare">
+          <header class="dark-head bar">
+            <button class="round" data-back aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15.5 5.5L8 13l7.5 7.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="round" data-go="cardmenu" aria-label="More">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="18" r="1.6" fill="#fff"/></svg>
+            </button>
+          </header>
+          <div class="dark-body medicare-body">
+            <div class="med-full">
+              <div class="med-full-head">Medicare card</div>
+              <div class="med-full-body">
+                <div class="mc-label">Card number</div>
+                <div class="mc-num" id="medNum">3430 12549 6</div>
+                <ol class="mc-names" id="medNames"></ol>
+                <div class="mc-label">Valid to</div>
+                <div class="mc-valid" id="medValid">Jun 2031</div>
+              </div>
+            </div>
+            <button class="manage-btn" data-msg="Opening Medicare to manage your card">
+              <span>Manage your card</span>
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="outline verify-btn" data-go="verify">
+              <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 14h2v2h-2zM18 14h2v2h-2zM15 18h2v2h-2zM18 18h2v2h-2z" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
+              Verify card
+            </button>
+            <p class="updated-line" id="medUpdated">Last updated 8 Sept 2026 at 8:14 am</p>
           </div>
         </section>
 
@@ -257,7 +290,7 @@
 
     <aside id="editor">
       <h2>Prop details</h2>
-      <p class="hint">These fields replace the name and card info on the screenshots. Leave a field matching the original photo to keep that part of the picture untouched.</p>
+      <p class="hint">These fields update the name on the welcome screen and the cards in the wallet. Person 2 is optional — leave it blank for one name on the Medicare card.</p>
       <label>First name (welcome screen)<input id="f-first" /></label>
       <label>Full name<input id="f-full" /></label>
       <label>Health Care Card initials<input id="f-initials" /></label>

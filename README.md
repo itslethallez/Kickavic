@@ -1,6 +1,6 @@
 # Kickavic — myGov film prop
 
-A clickable phone mock that uses the supplied myGov screenshots as the actual screens, then overlays name and card details so they can be changed for a scene.
+A clickable phone mock for film/TV. Welcome, PIN and Services use the supplied screenshots. Wallet and the Medicare card are drawn so names and numbers stay sharp and editable on any phone.
 
 **Not an official government app.** For film/TV production only.
 
@@ -40,6 +40,6 @@ You can change:
 - PIN (leave blank to accept any 6 digits)
 - Inbox count
 
-Name and card fields are drawn on top of the photos so they can be changed without a reshoot.
+Wallet cards and the Medicare card are drawn, so the full name and number stay readable when you change them.
 
 Tick **Hide editor button** before filming. Triple-tap the top of the screen to bring editing back.

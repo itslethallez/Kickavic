@@ -6,7 +6,7 @@ const ORIGINALS = {
   medicareMasked: "**** **549 6",
   member1: "James",
   member2: "",
-  people: "2 people",
+  people: "1 person",
   validTo: "Jun 2031",
   lastUpdated: "Last updated 8 Sept 2026 at 8:14 am",
   pin: "",
@@ -59,10 +59,7 @@ function maskMedicare(num) {
 
 function peopleLabel() {
   const names = [profile.member1, profile.member2].filter((s) => String(s).trim());
-  const stillOriginal =
-    profile.member1 === ORIGINALS.member1 && !String(profile.member2).trim();
-  if (stillOriginal) return ORIGINALS.people;
-  if (names.length <= 1) return names.length === 1 ? "1 person" : ORIGINALS.people;
+  if (names.length <= 1) return "1 person";
   return `${names.length} people`;
 }
 
@@ -132,14 +129,7 @@ function applyProfile(skipEditorSync = false) {
     el.textContent = p.inbox;
   });
 
-  toggleCover("welcomeNameCover", true);
-  toggleCover("hccCover", true);
-  toggleCover("walletMedCover", true);
-  toggleCover("medDetailCover", true);
-  toggleCover(
-    "updatedCover",
-    p.lastUpdated !== ORIGINALS.lastUpdated && `Last updated ${p.lastUpdated}` !== ORIGINALS.lastUpdated
-  );
+  toggleCover("welcomeNameCover", p.firstName !== ORIGINALS.firstName);
 
   if (!skipEditorSync) fillEditor();
 }
