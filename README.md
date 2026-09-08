@@ -40,6 +40,6 @@ You can change:
 - PIN (leave blank to accept any 6 digits)
 - Inbox count
 
-Fields that still match the original screenshots stay as the photo. Changed fields are drawn on top.
+Name and card fields are drawn on top of the photos so they can be changed without a reshoot.
 
 Tick **Hide editor button** before filming. Triple-tap the top of the screen to bring editing back.

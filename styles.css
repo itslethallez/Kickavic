@@ -65,10 +65,10 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   line-height: 1;
 }
 .cover.show { display: flex; }
-.cover-cyan { background: #63c9e3; color: #111; }
-.cover-cream { background: var(--cream); color: #111; }
-.cover-medgreen { background: var(--med); color: #111; flex-direction: column; align-items: flex-start; }
-.cover-white { background: #f7f7f7; color: #111; flex-direction: column; align-items: flex-start; }
+.cover-cyan { background: transparent; color: #111; }
+.cover-cream { background: transparent; color: #111; }
+.cover-medgreen { background: transparent; color: #111; flex-direction: column; align-items: flex-start; }
+.cover-white { background: transparent; color: #111; flex-direction: column; align-items: flex-start; }
 .cover-dark { background: #0d1114; color: #a8adb3; }
 
 .name-cover {
@@ -82,14 +82,15 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 #phone { container-type: size; }
 
 .initials-cover {
-  left: 8%;
+  left: 5.2%;
   width: 22%;
-  top: 41.5%;
-  height: 3.6%;
+  top: 41.4%;
+  height: 3.8%;
   justify-content: flex-start;
   font-weight: 600;
-  font-size: 1.55cqh;
-  padding-left: 2%;
+  font-size: 3.2cqh;
+  padding-left: 1.2%;
+  letter-spacing: 0.04em;
 }
 
 .mednum-cover {
@@ -100,8 +101,8 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   padding-left: 1%;
   justify-content: center;
 }
-#walletMedNum { font-weight: 700; font-size: 2.15cqh; letter-spacing: .3px; }
-#walletPeople { font-size: 1.25cqh; margin-top: .35cqh; }
+#walletMedNum { font-weight: 700; font-size: 2.4cqh; letter-spacing: .3px; }
+#walletPeople { font-size: 1.45cqh; margin-top: .35cqh; }
 
 .meddetail-cover {
   left: 8.5%;
