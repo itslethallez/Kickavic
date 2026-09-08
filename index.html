@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0d1114" />
+  <title>myGov</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="studio">
+    <div id="phone">
+      <div id="app">
+
+        <section class="screen active" id="welcome" style="background-image:url('screens/welcome.jpg')">
+          <button class="hot" style="left:78%;top:6.4%;width:10%;height:4.6%" data-go="scanner" aria-label="Scan"></button>
+          <button class="hot" style="left:88.5%;top:6.4%;width:10%;height:4.6%" data-go="info" aria-label="Info"></button>
+          <div class="cover cover-cyan name-cover" id="welcomeNameCover">
+            <span id="welcomeName">James</span>
+          </div>
+          <button class="hot" style="left:4%;top:79.8%;width:92%;height:5.8%" data-go="pin" aria-label="Continue"></button>
+          <button class="hot" style="left:22%;top:88.4%;width:56%;height:2.4%" data-go="signin" aria-label="Sign in as someone else"></button>
+        </section>
+
+        <section class="screen" id="pin" style="background-image:url('screens/pin.jpg')">
+          <button class="hot" style="left:3%;top:6.8%;width:12%;height:4.6%" data-go="welcome" aria-label="Back"></button>
+          <button class="hot" style="left:70%;top:6.8%;width:27%;height:4.6%" data-go="forgot" aria-label="Forgot PIN"></button>
+          <div class="pin-dots" id="pinDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="keypad">
+            <button data-k="1"></button><button data-k="2"></button><button data-k="3"></button>
+            <button data-k="4"></button><button data-k="5"></button><button data-k="6"></button>
+            <button data-k="7"></button><button data-k="8"></button><button data-k="9"></button>
+            <span></span><button data-k="0"></button><button data-k="back" aria-label="Delete"></button>
+          </div>
+        </section>
+
+        <section class="screen" id="wallet" style="background-image:url('screens/wallet.jpg')">
+          <button class="hot" style="left:76%;top:5.8%;width:10%;height:4.8%" data-msg="Edit wallet" aria-label="Edit"></button>
+          <button class="hot" style="left:87%;top:5.8%;width:10%;height:4.8%" data-go="addcard" aria-label="Add"></button>
+          <button class="hot" style="left:4%;top:19.2%;width:92%;height:26.2%" data-go="hcc" aria-label="Health Care Card"></button>
+          <div class="cover cover-cream initials-cover" id="hccCover"><span id="hccInitials">JSP</span></div>
+          <button class="hot" style="left:4%;top:47%;width:92%;height:26.2%" data-go="medicare" aria-label="Medicare card"></button>
+          <div class="cover cover-medgreen mednum-cover" id="walletMedCover">
+            <div id="walletMedNum">**** **549 6</div>
+            <div id="walletPeople">2 people</div>
+          </div>
+          <div class="tabs">
+            <button data-go="home" aria-label="Home"></button>
+            <button data-go="wallet" aria-label="Wallet"></button>
+            <button data-go="inbox" aria-label="Inbox"></button>
+            <button data-go="services" aria-label="Services"></button>
+          </div>
+        </section>
+
+        <section class="screen" id="services" style="background-image:url('screens/services.jpg')">
+          <button class="hot" style="left:76%;top:5.8%;width:10%;height:4.8%" data-msg="Edit services" aria-label="Edit"></button>
+          <button class="hot" style="left:87%;top:5.8%;width:10%;height:4.8%" data-go="linksvc" aria-label="Add"></button>
+          <button class="hot" style="left:4%;top:19.3%;width:92%;height:6.8%" data-go="forms" aria-label="Forms"></button>
+          <button class="hot" style="left:4%;top:31.4%;width:92%;height:7.8%" data-svc="Centrelink"></button>
+          <button class="hot" style="left:4%;top:39.2%;width:92%;height:7.8%" data-go="medicare"></button>
+          <button class="hot" style="left:4%;top:47.1%;width:92%;height:7.8%" data-svc="My Health Record"></button>
+          <button class="hot" style="left:4%;top:55%;width:92%;height:8%" data-svc="Workforce Australia"></button>
+          <div class="tabs">
+            <button data-go="home" aria-label="Home"></button>
+            <button data-go="wallet" aria-label="Wallet"></button>
+            <button data-go="inbox" aria-label="Inbox"></button>
+            <button data-go="services" aria-label="Services"></button>
+          </div>
+        </section>
+
+        <section class="screen" id="medicare" style="background-image:url('screens/medicare.jpg')">
+          <button class="hot" style="left:2.5%;top:5.8%;width:12%;height:5%" data-back aria-label="Back"></button>
+          <button class="hot" style="left:86%;top:5.8%;width:12%;height:5%" data-go="cardmenu" aria-label="More"></button>
+          <div class="cover cover-white meddetail-cover" id="medDetailCover">
+            <div class="mc-label">Card number</div>
+            <div class="mc-num" id="medNum">3430 12549 6</div>
+            <ol class="mc-names" id="medNames"></ol>
+            <div class="mc-label">Valid to</div>
+            <div class="mc-valid" id="medValid">Jun 2031</div>
+          </div>
+          <button class="hot" style="left:4%;top:51%;width:92%;height:6.6%" data-msg="Opening Medicare to manage your card"></button>
+          <button class="hot" style="left:4%;top:61.5%;width:92%;height:10%" data-go="verify"></button>
+          <div class="cover cover-dark updated-cover" id="updatedCover">
+            <span id="medUpdated">Last updated 8 Sept 2026 at 8:14 am</span>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="home">
+          <header class="dark-head">
+            <h1>Home</h1>
+            <button class="round" data-go="profile" aria-label="Account">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm-8 8c0-3.3 3.6-5 8-5s8 1.7 8 5v1H4v-1z" fill="#fff"/></svg>
+            </button>
+          </header>
+          <div class="dark-body">
+            <p class="hello">Good morning, <strong id="homeName">James</strong></p>
+            <button class="dcard" data-go="inbox">
+              <div><div class="dt">Inbox</div><div class="ds"><span class="inbox-n">15</span> new messages</div></div>
+              <span class="badge inbox-n">15</span>
+            </button>
+            <p class="sl">Wallet</p>
+            <button class="dcard" data-go="wallet"><div class="dt">Health Care Card · Medicare card</div></button>
+            <p class="sl">Services</p>
+            <button class="dcard" data-go="services"><div class="dt">Centrelink, Medicare and more</div></button>
+          </div>
+          <nav class="css-tabs">
+            <button class="on" data-go="home"><i class="i-home"></i>Home</button>
+            <button data-go="wallet"><i class="i-wallet"></i>Wallet</button>
+            <button data-go="inbox"><i class="i-inbox"></i><span class="nav-badge inbox-n">15</span>Inbox</button>
+            <button data-go="services"><i class="i-grid"></i>Services</button>
+          </nav>
+        </section>
+
+        <section class="screen dark-screen" id="inbox">
+          <header class="dark-head"><h1>Inbox</h1></header>
+          <div class="dark-body" id="inboxList"></div>
+          <nav class="css-tabs">
+            <button data-go="home"><i class="i-home"></i>Home</button>
+            <button data-go="wallet"><i class="i-wallet"></i>Wallet</button>
+            <button class="on" data-go="inbox"><i class="i-inbox"></i><span class="nav-badge inbox-n">15</span>Inbox</button>
+            <button data-go="services"><i class="i-grid"></i>Services</button>
+          </nav>
+        </section>
+
+        <section class="screen dark-screen" id="signin">
+          <header class="cyan-head">
+            <button class="round light" data-go="welcome" aria-label="Back">‹</button>
+          </header>
+          <div class="sign-body">
+            <h1>Sign in</h1>
+            <label>Username or email<input id="userIn" type="text" autocomplete="username" /></label>
+            <label>Password<input id="passIn" type="password" autocomplete="current-password" /></label>
+            <button class="black-btn" id="signBtn">Sign in</button>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="hcc">
+          <header class="dark-head bar">
+            <button class="round" data-back aria-label="Back">‹</button>
+          </header>
+          <div class="dark-body">
+            <div class="hcc-full">
+              <div class="hcc-top">Health Care Card</div>
+              <div class="hcc-bot">
+                <div class="mc-label">Name</div>
+                <div id="hccFullName">James</div>
+                <div class="mc-label">Initials</div>
+                <div id="hccFullInitials">JSP</div>
+              </div>
+            </div>
+            <button class="outline" data-go="verify">Verify card</button>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="forms">
+          <header class="dark-head bar"><button class="round" data-back aria-label="Back">‹</button></header>
+          <div class="dark-body">
+            <h1>Forms and applications</h1>
+            <button class="dcard" data-msg="Opening form"><div class="dt">Claim a Medicare benefit</div></button>
+            <button class="dcard" data-msg="Opening form"><div class="dt">Update your details</div></button>
+            <button class="dcard" data-msg="Opening form"><div class="dt">Report employment income</div></button>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="svcpage">
+          <header class="dark-head bar"><button class="round" data-back aria-label="Back">‹</button></header>
+          <div class="dark-body">
+            <h1 id="svcTitle">Service</h1>
+            <p class="ds">Signed in with myGov.</p>
+            <button class="dcard" data-msg="Payments"><div class="dt">Payments</div></button>
+            <button class="dcard" data-msg="Details"><div class="dt">Your details</div></button>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="message">
+          <header class="dark-head bar"><button class="round" data-back aria-label="Back">‹</button></header>
+          <div class="dark-body">
+            <p class="ds" id="msgFrom"></p>
+            <h1 id="msgTitle"></h1>
+            <p class="ds" id="msgDate"></p>
+            <div class="letter" id="msgBody"></div>
+          </div>
+        </section>
+
+        <div class="overlay" id="ov-info">
+          <div class="sheet">
+            <h2>About</h2>
+            <p>myGov app. Use Continue, then enter a 6-digit PIN to open the wallet and services.</p>
+            <button class="black-btn light" data-close>Close</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-scanner">
+          <div class="scanner">
+            <button class="round light close-x" data-close>✕</button>
+            <div class="vf"></div>
+            <p>Align the QR code within the frame</p>
+          </div>
+        </div>
+        <div class="overlay" id="ov-forgot">
+          <div class="sheet">
+            <h2>Forgot PIN</h2>
+            <p>A code will be sent to the mobile number on this account.</p>
+            <button class="black-btn light" id="sendCode">Send code</button>
+            <button class="txt" data-close>Cancel</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-verify">
+          <div class="sheet">
+            <h2>Verify card</h2>
+            <canvas id="qr" width="180" height="180"></canvas>
+            <p>Show this code to verify the card is genuine and valid.</p>
+            <button class="black-btn light" data-close>Done</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-cardmenu">
+          <div class="sheet">
+            <button class="row" data-msg="Card refreshed" data-close>Refresh</button>
+            <button class="row" data-msg="Help" data-close>Help</button>
+            <button class="row danger" data-msg="Kept in wallet" data-close>Remove from wallet</button>
+            <button class="black-btn light" data-close>Close</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-addcard">
+          <div class="sheet">
+            <h2>Add to wallet</h2>
+            <button class="row" data-msg="Already in wallet" data-close>Medicare card</button>
+            <button class="row" data-msg="Already in wallet" data-close>Health Care Card</button>
+            <button class="black-btn light" data-close>Close</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-linksvc">
+          <div class="sheet">
+            <h2>Link a service</h2>
+            <button class="row" data-msg="ATO linked" data-close>Australian Taxation Office</button>
+            <button class="row" data-msg="Child Support linked" data-close>Child Support</button>
+            <button class="black-btn light" data-close>Close</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-profile">
+          <div class="sheet">
+            <h2>Account</h2>
+            <p id="profileName">James</p>
+            <button class="row danger" id="signout">Sign out</button>
+            <button class="black-btn light" data-close>Close</button>
+          </div>
+        </div>
+
+        <button id="editFab" type="button">Edit details</button>
+        <div id="toast"></div>
+      </div>
+    </div>
+
+    <aside id="editor">
+      <h2>Prop details</h2>
+      <p class="hint">These fields replace the name and card info on the screenshots. Leave a field matching the original photo to keep that part of the picture untouched.</p>
+      <label>First name (welcome screen)<input id="f-first" /></label>
+      <label>Full name<input id="f-full" /></label>
+      <label>Health Care Card initials<input id="f-initials" /></label>
+      <label>Medicare number<input id="f-mednum" /></label>
+      <label>Person 1 on Medicare card<input id="f-m1" /></label>
+      <label>Person 2 on Medicare card<input id="f-m2" /></label>
+      <label>Valid to<input id="f-valid" /></label>
+      <label>Last updated<input id="f-updated" /></label>
+      <label>PIN (blank = any 6 digits)<input id="f-pin" inputmode="numeric" maxlength="6" /></label>
+      <label>Inbox count<input id="f-inbox" inputmode="numeric" /></label>
+      <div class="editor-actions">
+        <button type="button" id="saveDetails">Save to screens</button>
+        <button type="button" id="resetDetails" class="ghost">Reset to screenshots</button>
+      </div>
+      <p class="hint">On a phone: tap <strong>Edit details</strong>, or triple-tap the top of the screen. Hide that button with the checkbox before filming.</p>
+      <label class="check"><input type="checkbox" id="f-film" /> Hide editor button (filming mode)</label>
+    </aside>
+  </div>
+
+  <div class="overlay" id="ov-editor">
+    <div class="sheet tall" id="mobileEditor"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

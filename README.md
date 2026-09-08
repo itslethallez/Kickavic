@@ -1,1 +1,45 @@
-# Kickavic
+# Kickavic — myGov film prop
+
+A clickable phone mock that uses the supplied myGov screenshots as the actual screens, then overlays name and card details so they can be changed for a scene.
+
+**Not an official government app.** For film/TV production only.
+
+## How to run
+
+Open `index.html` in a browser, or from this folder:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then load `http://localhost:8080` on the computer or phone.
+
+On a phone: Add to Home Screen for a full-screen app.
+
+## Flow
+
+1. Welcome → **Continue**
+2. Enter any **6-digit PIN** (or the PIN set in Prop details)
+3. **Wallet** / **Services** tabs at the bottom
+4. Tap the **Medicare card** for the full card
+5. **Sign in as someone else** returns to a sign-in screen
+
+## Changing names and details
+
+On a computer, use the **Prop details** panel beside the phone.
+
+On a phone, tap **Edit details**, or triple-tap the top of the screen.
+
+You can change:
+
+- First name (welcome screen)
+- Full name
+- Health Care Card initials
+- Medicare number and the two names on the card
+- Valid to / last updated
+- PIN (leave blank to accept any 6 digits)
+- Inbox count
+
+Fields that still match the original screenshots stay as the photo. Changed fields are drawn on top.
+
+Tick **Hide editor button** before filming. Triple-tap the top of the screen to bring editing back.
