@@ -58,8 +58,12 @@ function maskMedicare(num) {
 }
 
 function peopleLabel() {
-  const n = [profile.member1, profile.member2].filter((s) => String(s).trim()).length;
-  return n === 1 ? "1 person" : `${n || 2} people`;
+  const names = [profile.member1, profile.member2].filter((s) => String(s).trim());
+  const stillOriginal =
+    profile.member1 === ORIGINALS.member1 && !String(profile.member2).trim();
+  if (stillOriginal) return ORIGINALS.people;
+  if (names.length <= 1) return names.length === 1 ? "1 person" : ORIGINALS.people;
+  return `${names.length} people`;
 }
 
 function showScreen(id, push = true) {
@@ -97,7 +101,7 @@ function openOverlay(id) {
   if (el) el.classList.add("show");
 }
 
-function applyProfile() {
+function applyProfile(skipEditorSync = false) {
   const p = profile;
   p.medicareMasked = maskMedicare(p.medicareNumber);
   p.people = peopleLabel();
@@ -128,21 +132,16 @@ function applyProfile() {
     el.textContent = p.inbox;
   });
 
-  toggleCover("welcomeNameCover", p.firstName !== ORIGINALS.firstName);
-  toggleCover("hccCover", p.initials !== ORIGINALS.initials);
+  toggleCover("welcomeNameCover", true);
+  toggleCover("hccCover", true);
+  toggleCover("walletMedCover", true);
+  toggleCover("medDetailCover", true);
   toggleCover(
-    "walletMedCover",
-    p.medicareMasked !== ORIGINALS.medicareMasked || p.people !== ORIGINALS.people
+    "updatedCover",
+    p.lastUpdated !== ORIGINALS.lastUpdated && `Last updated ${p.lastUpdated}` !== ORIGINALS.lastUpdated
   );
-  const medDirty =
-    p.medicareNumber !== ORIGINALS.medicareNumber ||
-    p.member1 !== ORIGINALS.member1 ||
-    String(p.member2) !== ORIGINALS.member2 ||
-    p.validTo !== ORIGINALS.validTo;
-  toggleCover("medDetailCover", medDirty);
-  toggleCover("updatedCover", p.lastUpdated !== ORIGINALS.lastUpdated && `Last updated ${p.lastUpdated}` !== ORIGINALS.lastUpdated);
 
-  fillEditor();
+  if (!skipEditorSync) fillEditor();
 }
 
 function toggleCover(id, on) {
@@ -173,7 +172,7 @@ function fillEditor() {
   if (mfilm) mfilm.checked = document.body.classList.contains("film");
 }
 
-function readEditor(prefix) {
+function readEditor(prefix, quiet = false) {
   const g = (id) => document.getElementById(prefix + id)?.value ?? "";
   profile.firstName = g("f-first").trim() || ORIGINALS.firstName;
   profile.fullName = g("f-full").trim() || profile.firstName;
@@ -190,8 +189,9 @@ function readEditor(prefix) {
   document.body.classList.toggle("film", !!(filmBox && filmBox.checked));
   localStorage.setItem("mygov-prop-film", document.body.classList.contains("film") ? "1" : "0");
   saveProfile();
-  applyProfile();
-  toast("Details updated");
+  applyProfile(true);
+  renderInbox();
+  if (!quiet) toast("Details updated");
 }
 
 function renderPin() {
@@ -330,6 +330,7 @@ document.querySelectorAll(".overlay").forEach((ov) => {
 });
 
 document.getElementById("saveDetails")?.addEventListener("click", () => readEditor(""));
+document.getElementById("editor")?.addEventListener("input", () => readEditor("", true));
 document.getElementById("resetDetails")?.addEventListener("click", () => {
   profile = { ...ORIGINALS };
   localStorage.removeItem(KEY);
