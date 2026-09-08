@@ -444,7 +444,7 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   position: absolute;
   left: 12px;
   right: auto;
-  bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(108px + env(safe-area-inset-bottom, 0px));
   z-index: 12;
   background: #fff;
   color: #111;
