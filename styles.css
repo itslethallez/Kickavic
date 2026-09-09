@@ -443,11 +443,11 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 .da-face::before {
   content: "";
   position: absolute;
-  inset: -40%;
+  inset: -45%;
   background: url("diamond-texture.svg") repeat;
-  background-size: 18% auto;
-  transform: rotate(-34deg);
-  opacity: .9;
+  background-size: 13% auto;
+  transform: rotate(-40deg);
+  opacity: .82;
   pointer-events: none;
 }
 .da-face::after {
@@ -463,7 +463,7 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   position: relative;
   z-index: 1;
   height: 100%;
-  padding: 5% 4.6% 4%;
+  padding: 4.6% 4.8% 3.6%;
   display: flex;
   flex-direction: column;
 }
@@ -489,8 +489,8 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  margin-top: 6.8%;
-  min-height: 11cqi;
+  margin-top: 5.6%;
+  min-height: 10cqi;
 }
 .da-chip {
   width: 13.1cqi;
@@ -549,16 +549,17 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
   margin-top: auto;
   text-align: center;
   font-family: "Courier New", Courier, ui-monospace, monospace;
-  font-size: 6.2cqi;
-  letter-spacing: .18em;
+  font-size: 5.05cqi;
+  letter-spacing: .04em;
+  word-spacing: .42em;
   font-weight: 500;
   line-height: 1;
-  text-indent: .18em;
+  white-space: nowrap;
   text-shadow: 0 1px 0 rgba(255,255,255,.16), 0 -1px 0 rgba(0,0,0,.55);
 }
 .da-dates {
   text-align: center;
-  margin-top: 2.6%;
+  margin-top: 2.1%;
 }
 .da-dates-kicker {
   font-size: 1.85cqi;
@@ -575,44 +576,47 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 }
 .da-dates-val {
   font-family: "Courier New", Courier, ui-monospace, monospace;
-  font-size: 3.45cqi;
-  letter-spacing: .28em;
-  margin-top: .7%;
-  text-indent: .28em;
+  font-size: 3.2cqi;
+  letter-spacing: .08em;
+  word-spacing: .55em;
+  margin-top: .55%;
+  white-space: nowrap;
   text-shadow: 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.45);
 }
 .da-bot {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 3.4%;
+  margin-top: 2.6%;
   gap: 3%;
 }
 .da-name {
   font-family: "Courier New", Courier, ui-monospace, monospace;
-  font-size: 3.35cqi;
-  letter-spacing: .1em;
+  font-size: 3.15cqi;
+  letter-spacing: .08em;
   text-transform: uppercase;
   text-shadow: 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.45);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-bottom: .4cqi;
 }
-.da-mc { text-align: center; flex: 0 0 auto; }
+.da-mc { text-align: center; flex: 0 0 auto; line-height: 0; }
 .da-mc-mark {
-  width: 11.8cqi;
-  height: 7.2cqi;
+  width: 10.6cqi;
+  height: 6.5cqi;
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.3));
 }
 .da-mc-word {
-  font-size: 2.15cqi;
+  font-size: 2.05cqi;
   letter-spacing: .04em;
   font-weight: 400;
-  margin-top: -.15cqi;
+  margin-top: .35cqi;
   line-height: 1;
+  display: block;
 }
 
 .overlay {
