@@ -1,4 +1,4 @@
-const CACHE = "mygov-prop-v5";
+const CACHE = "mygov-prop-v6";
 const ASSETS = ["./","index.html","styles.css","app.js","manifest.webmanifest","icon.svg","diamond-texture.svg"];
 
 self.addEventListener("install", (event) => {

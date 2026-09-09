@@ -116,6 +116,7 @@
               <span>Manage your card</span>
               <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
+            <button class="outline export-png" type="button" data-export="medicare">Export PNG</button>
             <button class="outline verify-btn" data-go="verify">
               <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 14h2v2h-2zM18 14h2v2h-2zM15 18h2v2h-2zM18 18h2v2h-2z" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
               Verify card
@@ -184,6 +185,7 @@
           </header>
           <div class="dark-body diamond-body">
             <div class="da-mount da-hero" data-da-card></div>
+            <button class="outline export-png" type="button" data-export="diamond">Export PNG</button>
           </div>
         </section>
 
@@ -201,6 +203,7 @@
                 <div id="hccFullInitials">JSP</div>
               </div>
             </div>
+            <button class="outline export-png" type="button" data-export="hcc">Export PNG</button>
             <button class="outline" data-go="verify">Verify card</button>
           </div>
         </section>
@@ -268,6 +271,7 @@
         <div class="overlay" id="ov-cardmenu">
           <div class="sheet">
             <button class="row" data-msg="Card refreshed" data-close>Refresh</button>
+            <button class="row export-png" type="button" id="exportMenuPng">Export PNG</button>
             <button class="row" data-msg="Help" data-close>Help</button>
             <button class="row danger" data-msg="Kept in wallet" data-close>Remove from wallet</button>
             <button class="black-btn light" data-close>Close</button>
@@ -321,8 +325,16 @@
       <label>Last updated<input id="f-updated" /></label>
       <label>PIN (blank = any 6 digits)<input id="f-pin" inputmode="numeric" maxlength="6" /></label>
       <label>Inbox count<input id="f-inbox" inputmode="numeric" /></label>
+      <label>Export PNG
+        <select id="f-exportcard">
+          <option value="diamond">Diamond Awards</option>
+          <option value="medicare">Medicare card</option>
+          <option value="hcc">Health Care Card</option>
+        </select>
+      </label>
       <div class="editor-actions">
         <button type="button" id="saveDetails">Save to screens</button>
+        <button type="button" id="exportPng">Download PNG</button>
         <button type="button" id="resetDetails" class="ghost">Reset to screenshots</button>
       </div>
       <p class="hint">On a phone: tap <strong>Edit details</strong>, or triple-tap the top of the screen. Hide that button with the checkbox before filming.</p>

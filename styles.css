@@ -411,8 +411,10 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 .diamond-body {
   padding: 6% 4% 20px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
 }
+.diamond-body .export-png { margin-top: 14px; }
 .da-mount {
   display: block;
   width: 100%;
@@ -692,12 +694,17 @@ body.film #editFab { display: none; }
 #editor label, #mobileEditor label {
   display: block; font-size: 12px; color: #bbb; margin: 10px 0;
 }
-#editor input, #mobileEditor input {
+#editor input, #mobileEditor input,
+#editor select, #mobileEditor select {
   display: block; width: 100%; margin-top: 4px; height: 40px;
   border: 0; border-radius: 8px; padding: 0 10px; background: #2b3036; color: #fff; font-size: 15px;
 }
 .editor-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-#saveDetails, #resetDetails, #mobileEditor .black-btn { width: 100%; }
+#saveDetails, #exportPng, #resetDetails, #mobileEditor .black-btn { width: 100%; }
+#exportPng, #m-exportPng {
+  height: 50px; border-radius: 8px; background: #fff; color: #111; font-size: 16px; font-weight: 600;
+}
+body.film .export-png { display: none; }
 .ghost {
   height: 44px; border-radius: 8px; background: transparent; color: #ddd; border: 1px solid #555;
 }

@@ -41,4 +41,10 @@ You can change:
 
 Wallet cards are drawn, so the full name and number stay readable when you change them.
 
+## Exporting a card PNG
+
+In **Prop details**, pick Diamond Awards, Medicare, or the Health Care Card, then **Download PNG**.
+
+On the full card screen, tap **Export PNG**. Diamond Awards exports at 3000×1892 (ISO credit-card proportion) for print or film inserts.
+
 Tick **Hide editor button** before filming. Triple-tap the top of the screen to bring editing back.
