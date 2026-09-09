@@ -66,6 +66,7 @@
                 <div id="walletPeople">1 person</div>
               </div>
             </button>
+            <button class="da-mount" data-go="diamond" aria-label="Diamond Awards card" data-da-card></button>
           </div>
           <nav class="css-tabs">
             <button data-go="home"><i class="i-home"></i>Home</button>
@@ -137,7 +138,7 @@
               <span class="badge inbox-n">15</span>
             </button>
             <p class="sl">Wallet</p>
-            <button class="dcard" data-go="wallet"><div class="dt">Health Care Card · Medicare card</div></button>
+            <button class="dcard" data-go="wallet"><div class="dt">Health Care Card · Medicare card · Diamond Awards</div></button>
             <p class="sl">Services</p>
             <button class="dcard" data-go="services"><div class="dt">Centrelink, Medicare and more</div></button>
           </div>
@@ -169,6 +170,20 @@
             <label>Username or email<input id="userIn" type="text" autocomplete="username" /></label>
             <label>Password<input id="passIn" type="password" autocomplete="current-password" /></label>
             <button class="black-btn" id="signBtn">Sign in</button>
+          </div>
+        </section>
+
+        <section class="screen dark-screen" id="diamond">
+          <header class="dark-head bar">
+            <button class="round" data-back aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15.5 5.5L8 13l7.5 7.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="round" data-go="cardmenu" aria-label="More">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="18" r="1.6" fill="#fff"/></svg>
+            </button>
+          </header>
+          <div class="dark-body diamond-body">
+            <div class="da-mount da-hero" data-da-card></div>
           </div>
         </section>
 
@@ -263,6 +278,7 @@
             <h2>Add to wallet</h2>
             <button class="row" data-msg="Already in wallet" data-close>Medicare card</button>
             <button class="row" data-msg="Already in wallet" data-close>Health Care Card</button>
+            <button class="row" data-msg="Already in wallet" data-close>Diamond Awards</button>
             <button class="black-btn light" data-close>Close</button>
           </div>
         </div>
@@ -290,11 +306,15 @@
 
     <aside id="editor">
       <h2>Prop details</h2>
-      <p class="hint">These fields update the name on the welcome screen and the cards in the wallet. Person 2 is optional — leave it blank for one name on the Medicare card.</p>
+      <p class="hint">These fields update the name on the welcome screen and the cards in the wallet. Person 2 is optional — leave it blank for one name on the Medicare card. Leave the Diamond Awards cardholder blank to use the full name.</p>
       <label>First name (welcome screen)<input id="f-first" /></label>
       <label>Full name<input id="f-full" /></label>
       <label>Health Care Card initials<input id="f-initials" /></label>
       <label>Medicare number<input id="f-mednum" /></label>
+      <label>Diamond Awards cardholder<input id="f-cardname" placeholder="Uses full name if blank" /></label>
+      <label>Diamond Awards number<input id="f-cardnum" inputmode="numeric" /></label>
+      <label>Valid from (MM/YY)<input id="f-from" placeholder="00/00" /></label>
+      <label>Valid to (MM/YY)<input id="f-to" placeholder="00/00" /></label>
       <label>Person 1 on Medicare card<input id="f-m1" /></label>
       <label>Person 2 on Medicare card<input id="f-m2" /></label>
       <label>Valid to<input id="f-valid" /></label>

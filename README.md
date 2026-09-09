@@ -1,8 +1,6 @@
-# Kickavic — myGov film prop
+A clickable phone mock for film/TV. Welcome, PIN and Services use the supplied screenshots. Wallet cards — Health Care Card, Medicare, and the CommBank Diamond Awards card — are drawn so names and numbers stay sharp and editable on any phone.
 
-A clickable phone mock for film/TV. Welcome, PIN and Services use the supplied screenshots. Wallet and the Medicare card are drawn so names and numbers stay sharp and editable on any phone.
-
-**Not an official government app.** For film/TV production only.
+**Not an official government or bank app.** For film/TV production only.
 
 ## How to run
 
@@ -21,7 +19,7 @@ On a phone: Add to Home Screen for a full-screen app.
 1. Welcome → **Continue**
 2. Enter any **6-digit PIN** (or the PIN set in Prop details)
 3. **Wallet** / **Services** tabs at the bottom
-4. Tap the **Medicare card** for the full card
+4. Tap the **Medicare card** or **Diamond Awards** card for the full card
 5. **Sign in as someone else** returns to a sign-in screen
 
 ## Changing names and details
@@ -36,10 +34,11 @@ You can change:
 - Full name
 - Health Care Card initials
 - Medicare number and the two names on the card
+- Diamond Awards cardholder, number, and valid dates
 - Valid to / last updated
 - PIN (leave blank to accept any 6 digits)
 - Inbox count
 
-Wallet cards and the Medicare card are drawn, so the full name and number stay readable when you change them.
+Wallet cards are drawn, so the full name and number stay readable when you change them.
 
 Tick **Hide editor button** before filming. Triple-tap the top of the screen to bring editing back.

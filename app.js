@@ -9,6 +9,10 @@ const ORIGINALS = {
   people: "1 person",
   validTo: "Jun 2031",
   lastUpdated: "Last updated 8 Sept 2026 at 8:14 am",
+  cardholder: "",
+  cardNumber: "5523 5000 0000 0000",
+  validFrom: "00/00",
+  cardValidTo: "00/00",
   pin: "",
   inbox: "15",
 };
@@ -61,6 +65,87 @@ function peopleLabel() {
   const names = [profile.member1, profile.member2].filter((s) => String(s).trim());
   if (names.length <= 1) return "1 person";
   return `${names.length} people`;
+}
+
+function formatPan(num) {
+  const d = String(num).replace(/\D/g, "").slice(0, 16);
+  const groups = d.match(/.{1,4}/g);
+  return groups ? groups.join(" ") : ORIGINALS.cardNumber;
+}
+
+function formatDateMMYY(val, fallback) {
+  const raw = String(val || "").trim();
+  if (/^\d{1,2}\s*\/\s*\d{2}$/.test(raw)) {
+    const [mm, yy] = raw.split("/").map((s) => s.trim());
+    return `${mm.padStart(2, "0")}/${yy}`;
+  }
+  const d = raw.replace(/\D/g, "").slice(0, 4);
+  if (d.length === 4) return `${d.slice(0, 2)}/${d.slice(2)}`;
+  if (d.length === 0) return fallback;
+  return raw || fallback;
+}
+
+function cardholderName() {
+  const custom = String(profile.cardholder || "").trim();
+  return (custom || profile.fullName || ORIGINALS.fullName).toUpperCase();
+}
+
+function diamondCardMarkup() {
+  return `
+    <div class="da-face">
+      <div class="da-inner">
+        <div class="da-top">
+          <svg class="da-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.1L22.9 12 12 22.9 1.1 12Z" fill="#FFCC00"/></svg>
+          <span class="da-product">Diamond Awards</span>
+        </div>
+        <div class="da-mid">
+          <div class="da-chip" aria-hidden="true"></div>
+          <div class="da-mid-center">
+            <span class="da-world">world</span>
+            <svg class="da-pay" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round">
+              <path d="M7.2 8.2c2 2.1 2 5.5 0 7.6"/>
+              <path d="M10.4 6c3.2 3.2 3.2 8.8 0 12"/>
+              <path d="M13.6 3.8c4.4 4.2 4.4 12.2 0 16.4"/>
+              <path d="M16.8 1.8c5.5 5.2 5.5 15.2 0 20.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="da-number"></div>
+        <div class="da-dates">
+          <div class="da-dates-kicker">VALID DATES</div>
+          <div class="da-dates-sub">MONTH / YEAR - MONTH / YEAR</div>
+          <div class="da-dates-val"><span class="da-from"></span> <span class="da-to"></span></div>
+        </div>
+        <div class="da-bot">
+          <div class="da-name"></div>
+          <div class="da-mc">
+            <svg class="da-mc-mark" viewBox="0 0 41 25" aria-hidden="true">
+              <circle cx="15.2" cy="12.5" r="12.5" fill="#EB001B"/>
+              <circle cx="25.8" cy="12.5" r="12.5" fill="#F79E1B"/>
+            </svg>
+            <div class="da-mc-word">mastercard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function mountDiamondCards() {
+  document.querySelectorAll("[data-da-card]").forEach((el) => {
+    el.innerHTML = diamondCardMarkup();
+  });
+}
+
+function paintDiamondCards() {
+  const number = formatPan(profile.cardNumber);
+  const name = cardholderName();
+  const from = formatDateMMYY(profile.validFrom, ORIGINALS.validFrom);
+  const to = formatDateMMYY(profile.cardValidTo, ORIGINALS.cardValidTo);
+  document.querySelectorAll(".da-number").forEach((el) => { el.textContent = number; });
+  document.querySelectorAll(".da-name").forEach((el) => { el.textContent = name; });
+  document.querySelectorAll(".da-from").forEach((el) => { el.textContent = from; });
+  document.querySelectorAll(".da-to").forEach((el) => { el.textContent = to; });
 }
 
 function showScreen(id, push = true) {
@@ -119,6 +204,7 @@ function applyProfile(skipEditorSync = false) {
   set("hccFullName", p.fullName);
   set("hccFullInitials", p.initials);
   set("profileName", p.fullName);
+  paintDiamondCards();
 
   const names = [p.member1, p.member2].filter((s) => String(s).trim());
   document.getElementById("medNames").innerHTML = names
@@ -144,6 +230,10 @@ function fillEditor() {
     "f-full": profile.fullName,
     "f-initials": profile.initials,
     "f-mednum": profile.medicareNumber,
+    "f-cardname": profile.cardholder,
+    "f-cardnum": profile.cardNumber,
+    "f-from": profile.validFrom,
+    "f-to": profile.cardValidTo,
     "f-m1": profile.member1,
     "f-m2": profile.member2,
     "f-valid": profile.validTo,
@@ -168,6 +258,10 @@ function readEditor(prefix, quiet = false) {
   profile.fullName = g("f-full").trim() || profile.firstName;
   profile.initials = g("f-initials").trim() || ORIGINALS.initials;
   profile.medicareNumber = g("f-mednum").trim() || ORIGINALS.medicareNumber;
+  profile.cardholder = g("f-cardname").trim();
+  profile.cardNumber = formatPan(g("f-cardnum").trim() || ORIGINALS.cardNumber);
+  profile.validFrom = formatDateMMYY(g("f-from").trim(), ORIGINALS.validFrom);
+  profile.cardValidTo = formatDateMMYY(g("f-to").trim(), ORIGINALS.cardValidTo);
   profile.member1 = g("f-m1").trim();
   profile.member2 = g("f-m2").trim();
   profile.validTo = g("f-valid").trim() || ORIGINALS.validTo;
@@ -258,6 +352,7 @@ function handleGo(go, el) {
     inbox: "inbox",
     medicare: "medicare",
     hcc: "hcc",
+    diamond: "diamond",
     forms: "forms",
     scanner: null,
     info: null,
@@ -393,6 +488,7 @@ if (new URLSearchParams(location.search).has("debug")) document.body.classList.a
 if (localStorage.getItem("mygov-prop-film") === "1") document.body.classList.add("film");
 
 buildMobileEditor();
+mountDiamondCards();
 applyProfile();
 renderInbox();
 
