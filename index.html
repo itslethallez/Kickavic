@@ -66,6 +66,7 @@
                 <div id="walletPeople">1 person</div>
               </div>
             </button>
+            <button class="da-mount" data-go="diamond" aria-label="Diamond Awards card" data-da-card></button>
           </div>
           <nav class="css-tabs">
             <button data-go="home"><i class="i-home"></i>Home</button>
@@ -115,6 +116,7 @@
               <span>Manage your card</span>
               <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
+            <button class="outline export-png" type="button" data-export="medicare">Export PNG</button>
             <button class="outline verify-btn" data-go="verify">
               <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM15 14h2v2h-2zM18 14h2v2h-2zM15 18h2v2h-2zM18 18h2v2h-2z" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
               Verify card
@@ -137,7 +139,7 @@
               <span class="badge inbox-n">15</span>
             </button>
             <p class="sl">Wallet</p>
-            <button class="dcard" data-go="wallet"><div class="dt">Health Care Card · Medicare card</div></button>
+            <button class="dcard" data-go="wallet"><div class="dt">Health Care Card · Medicare card · Diamond Awards</div></button>
             <p class="sl">Services</p>
             <button class="dcard" data-go="services"><div class="dt">Centrelink, Medicare and more</div></button>
           </div>
@@ -172,6 +174,21 @@
           </div>
         </section>
 
+        <section class="screen dark-screen" id="diamond">
+          <header class="dark-head bar">
+            <button class="round" data-back aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15.5 5.5L8 13l7.5 7.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="round" data-go="cardmenu" aria-label="More">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="18" r="1.6" fill="#fff"/></svg>
+            </button>
+          </header>
+          <div class="dark-body diamond-body">
+            <div class="da-mount da-hero" data-da-card></div>
+            <button class="outline export-png" type="button" data-export="diamond">Export PNG</button>
+          </div>
+        </section>
+
         <section class="screen dark-screen" id="hcc">
           <header class="dark-head bar">
             <button class="round" data-back aria-label="Back">‹</button>
@@ -186,6 +203,7 @@
                 <div id="hccFullInitials">JSP</div>
               </div>
             </div>
+            <button class="outline export-png" type="button" data-export="hcc">Export PNG</button>
             <button class="outline" data-go="verify">Verify card</button>
           </div>
         </section>
@@ -253,6 +271,7 @@
         <div class="overlay" id="ov-cardmenu">
           <div class="sheet">
             <button class="row" data-msg="Card refreshed" data-close>Refresh</button>
+            <button class="row export-png" type="button" id="exportMenuPng">Export PNG</button>
             <button class="row" data-msg="Help" data-close>Help</button>
             <button class="row danger" data-msg="Kept in wallet" data-close>Remove from wallet</button>
             <button class="black-btn light" data-close>Close</button>
@@ -263,6 +282,7 @@
             <h2>Add to wallet</h2>
             <button class="row" data-msg="Already in wallet" data-close>Medicare card</button>
             <button class="row" data-msg="Already in wallet" data-close>Health Care Card</button>
+            <button class="row" data-msg="Already in wallet" data-close>Diamond Awards</button>
             <button class="black-btn light" data-close>Close</button>
           </div>
         </div>
@@ -290,19 +310,31 @@
 
     <aside id="editor">
       <h2>Prop details</h2>
-      <p class="hint">These fields update the name on the welcome screen and the cards in the wallet. Person 2 is optional — leave it blank for one name on the Medicare card.</p>
+      <p class="hint">These fields update the name on the welcome screen and the cards in the wallet. Person 2 is optional — leave it blank for one name on the Medicare card. Leave the Diamond Awards cardholder blank to use the full name.</p>
       <label>First name (welcome screen)<input id="f-first" /></label>
       <label>Full name<input id="f-full" /></label>
       <label>Health Care Card initials<input id="f-initials" /></label>
       <label>Medicare number<input id="f-mednum" /></label>
+      <label>Diamond Awards cardholder<input id="f-cardname" placeholder="Uses full name if blank" /></label>
+      <label>Diamond Awards number<input id="f-cardnum" inputmode="numeric" /></label>
+      <label>Valid from (MM/YY)<input id="f-from" placeholder="00/00" /></label>
+      <label>Valid to (MM/YY)<input id="f-to" placeholder="00/00" /></label>
       <label>Person 1 on Medicare card<input id="f-m1" /></label>
       <label>Person 2 on Medicare card<input id="f-m2" /></label>
       <label>Valid to<input id="f-valid" /></label>
       <label>Last updated<input id="f-updated" /></label>
       <label>PIN (blank = any 6 digits)<input id="f-pin" inputmode="numeric" maxlength="6" /></label>
       <label>Inbox count<input id="f-inbox" inputmode="numeric" /></label>
+      <label>Export PNG
+        <select id="f-exportcard">
+          <option value="diamond">Diamond Awards</option>
+          <option value="medicare">Medicare card</option>
+          <option value="hcc">Health Care Card</option>
+        </select>
+      </label>
       <div class="editor-actions">
         <button type="button" id="saveDetails">Save to screens</button>
+        <button type="button" id="exportPng">Download PNG</button>
         <button type="button" id="resetDetails" class="ghost">Reset to screenshots</button>
       </div>
       <p class="hint">On a phone: tap <strong>Edit details</strong>, or triple-tap the top of the screen. Hide that button with the checkbox before filming.</p>

@@ -95,7 +95,7 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 
 .head-actions { display: flex; gap: 8px; margin-top: 4%; }
 
-.wallet-body { padding: 2% 4% 12px; }
+.wallet-body { padding: 2% 4% 18%; }
 .medicare-body { padding: 2% 4% 20px; }
 
 .hcc-card,
@@ -408,6 +408,219 @@ body.debug .hot { outline: 1px solid rgba(255, 0, 0, .45); background: rgba(255,
 .hcc-bot #hccFullName, .hcc-bot #hccFullInitials { font-size: 20px; font-weight: 700; margin: 4px 0 14px; }
 .letter { background: var(--card); padding: 14px; border-radius: 12px; line-height: 1.5; }
 
+.diamond-body {
+  padding: 6% 4% 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.diamond-body .export-png { margin-top: 14px; }
+.da-mount {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.586 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 0 14px;
+  color: #fff;
+  text-align: left;
+  container-type: inline-size;
+  box-shadow: 0 10px 28px rgba(0,0,0,.5);
+  background: #141414;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.da-hero { margin-bottom: 0; }
+.da-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 48% 36%, rgba(255,255,255,.09), transparent 56%),
+    linear-gradient(158deg, #2b2b2b 0%, #171717 46%, #0b0b0b 100%);
+  color: #fff;
+}
+.da-face::before {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: url("diamond-texture.svg") repeat;
+  background-size: 13% auto;
+  transform: rotate(-40deg);
+  opacity: .82;
+  pointer-events: none;
+}
+.da-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, transparent 28%, rgba(0,0,0,.38) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.05), transparent 22%, transparent 70%, rgba(0,0,0,.2));
+  pointer-events: none;
+}
+.da-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 4.6% 4.8% 3.6%;
+  display: flex;
+  flex-direction: column;
+}
+.da-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.da-logo {
+  width: 7.1cqi;
+  height: 7.1cqi;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.35));
+}
+.da-product {
+  font-size: 4.05cqi;
+  font-weight: 500;
+  letter-spacing: .01em;
+  padding-top: .35cqi;
+  text-shadow: 0 1px 1px rgba(0,0,0,.45);
+}
+.da-mid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-top: 5.6%;
+  min-height: 10cqi;
+}
+.da-chip {
+  width: 13.1cqi;
+  height: 10.1cqi;
+  border-radius: 1.2cqi;
+  flex: 0 0 auto;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.35), transparent 42%),
+    linear-gradient(145deg, #f4e6c0 0%, #c9a45c 42%, #ead39c 70%, #a7843c 100%);
+  box-shadow:
+    inset 0 0 0 .18cqi rgba(90,70,30,.35),
+    inset 0 .4cqi .6cqi rgba(255,255,255,.35),
+    0 .45cqi .8cqi rgba(0,0,0,.4);
+}
+.da-chip::before {
+  content: "";
+  position: absolute;
+  inset: 18% 9%;
+  border: .2cqi solid rgba(80,55,18,.4);
+  border-radius: .35cqi;
+  background:
+    linear-gradient(rgba(80,55,18,.0) 44%, rgba(80,55,18,.38) 44%, rgba(80,55,18,.38) 56%, rgba(80,55,18,.0) 56%),
+    linear-gradient(90deg,
+      rgba(80,55,18,.0) 28%,
+      rgba(80,55,18,.38) 28%,
+      rgba(80,55,18,.38) 36%,
+      rgba(80,55,18,.0) 36%,
+      rgba(80,55,18,.0) 64%,
+      rgba(80,55,18,.38) 64%,
+      rgba(80,55,18,.38) 72%,
+      rgba(80,55,18,.0) 72%);
+}
+.da-mid-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.6cqi;
+  transform: translateX(-2.5cqi);
+}
+.da-world {
+  font-size: 5.2cqi;
+  font-weight: 400;
+  letter-spacing: .03em;
+  line-height: 1;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.da-pay {
+  width: 6.3cqi;
+  height: 6.3cqi;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.35));
+}
+.da-number {
+  margin-top: auto;
+  text-align: center;
+  font-family: "Courier New", Courier, ui-monospace, monospace;
+  font-size: 5.05cqi;
+  letter-spacing: .04em;
+  word-spacing: .42em;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255,255,255,.16), 0 -1px 0 rgba(0,0,0,.55);
+}
+.da-dates {
+  text-align: center;
+  margin-top: 2.1%;
+}
+.da-dates-kicker {
+  font-size: 1.85cqi;
+  letter-spacing: .22em;
+  font-weight: 700;
+  opacity: .95;
+}
+.da-dates-sub {
+  font-size: 1.42cqi;
+  letter-spacing: .1em;
+  font-weight: 500;
+  opacity: .82;
+  margin-top: .35%;
+}
+.da-dates-val {
+  font-family: "Courier New", Courier, ui-monospace, monospace;
+  font-size: 3.2cqi;
+  letter-spacing: .08em;
+  word-spacing: .55em;
+  margin-top: .55%;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.45);
+}
+.da-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2.6%;
+  gap: 3%;
+}
+.da-name {
+  font-family: "Courier New", Courier, ui-monospace, monospace;
+  font-size: 3.15cqi;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.45);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom: .4cqi;
+}
+.da-mc { text-align: center; flex: 0 0 auto; line-height: 0; }
+.da-mc-mark {
+  width: 10.6cqi;
+  height: 6.5cqi;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.3));
+}
+.da-mc-word {
+  font-size: 2.05cqi;
+  letter-spacing: .04em;
+  font-weight: 400;
+  margin-top: .35cqi;
+  line-height: 1;
+  display: block;
+}
+
 .overlay {
   position: absolute; inset: 0; background: rgba(0,0,0,.55);
   display: none; align-items: flex-end; z-index: 20;
@@ -481,12 +694,17 @@ body.film #editFab { display: none; }
 #editor label, #mobileEditor label {
   display: block; font-size: 12px; color: #bbb; margin: 10px 0;
 }
-#editor input, #mobileEditor input {
+#editor input, #mobileEditor input,
+#editor select, #mobileEditor select {
   display: block; width: 100%; margin-top: 4px; height: 40px;
   border: 0; border-radius: 8px; padding: 0 10px; background: #2b3036; color: #fff; font-size: 15px;
 }
 .editor-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-#saveDetails, #resetDetails, #mobileEditor .black-btn { width: 100%; }
+#saveDetails, #exportPng, #resetDetails, #mobileEditor .black-btn { width: 100%; }
+#exportPng, #m-exportPng {
+  height: 50px; border-radius: 8px; background: #fff; color: #111; font-size: 16px; font-weight: 600;
+}
+body.film .export-png { display: none; }
 .ghost {
   height: 44px; border-radius: 8px; background: transparent; color: #ddd; border: 1px solid #555;
 }
